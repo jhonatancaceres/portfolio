@@ -3,10 +3,11 @@ import { HiOutlineRectangleGroup, HiOutlineTableCells } from "react-icons/hi2";
 import { ButtonLineGroup } from "../../../components/ui/Button";
 
 interface ContactsHeaderProps<T> {
+  defaultViewMode: T,
   onViewChange: (view: T) => void
 }
 
-export function ContactsHeader<T>({ onViewChange }: ContactsHeaderProps<T>) {
+export function ContactsHeader<T>({ onViewChange, defaultViewMode }: ContactsHeaderProps<T>) {
 
   const options = [
     {
@@ -26,7 +27,7 @@ export function ContactsHeader<T>({ onViewChange }: ContactsHeaderProps<T>) {
       First one, ressults of the query
     </div>
     <div className="text-right">
-      View <ButtonLineGroup items={options} onChange={(view: string) => onViewChange(view as any)} />
+      View <ButtonLineGroup controlledActiveKey={defaultViewMode as string} items={options} onChange={(view: string) => onViewChange(view as any)} />
     </div>
   </div>
 }

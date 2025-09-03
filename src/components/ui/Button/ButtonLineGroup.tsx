@@ -8,14 +8,14 @@ interface ButtonItem {
 
 interface ButtonLineGroupProps {
   items: ButtonItem[];
-  activeKey?: string;
+  controlledActiveKey?: string;
   onChange?: (key: string) => void;
   className?: string;
 }
 
 export const ButtonLineGroup: React.FC<ButtonLineGroupProps> = ({
   items,
-  activeKey: controlledActiveKey,
+  controlledActiveKey,
   onChange,
   className = ''
 }) => {

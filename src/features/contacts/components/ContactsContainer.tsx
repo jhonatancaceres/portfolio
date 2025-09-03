@@ -28,7 +28,11 @@ const ContactsContainer: React.FC = () => {
   return (
     <div>
 
-      <ContactsHeader<ViewModeT> onViewChange={(view) => setViewMode(view)} />
+      <ContactsHeader<ViewModeT>
+        defaultViewMode={viewMode}
+        onViewChange={(view) => setViewMode(view)}
+      />
+
       {viewMode == 'table' && <GridExample />}
 
       {viewMode == 'card' &&
