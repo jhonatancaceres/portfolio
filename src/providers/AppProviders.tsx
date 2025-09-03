@@ -1,10 +1,10 @@
 import { type PropsWithChildren } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ErrorBoundary, ErrorProvider } from '../lib/error-handler';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from '../lib/queryClient';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-//import { ErrorBoundary } from "react-error-boundary";
-
-//import { ErrorProvider, GlobalErrorBoundary } from '../lib/error-handler';
 
 ///*<ErrorProvider>
 //<GlobalErrorBoundary>
@@ -32,9 +32,14 @@ export const AppProviders = ({ children }: PropsWithChildren) => {
   return (
     <ErrorProvider>
       <ErrorBoundary>
-        <BrowserRouter>
-          {children}
-        </BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            {children}
+          </BrowserRouter>
+          {process.env.NODE_ENV === 'development' && (
+            <ReactQueryDevtools initialIsOpen={false} />
+          )}
+        </QueryClientProvider>
       </ErrorBoundary>
     </ErrorProvider>
   );

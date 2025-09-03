@@ -1,7 +1,7 @@
 
 import type { JSX } from "react";
 import type React from "react";
-import ErrorTestPanel from "../features/lab/ErrorTestPanel";
+import ErrorTestPanel from "../features/lab/components/ErrorTestPanel";
 import { Grid } from "../components/ui/Grid";
 import { Card } from "../components/ui/Card";
 import { Page } from "../components/ui/Layout";

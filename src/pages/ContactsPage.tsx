@@ -1,12 +1,16 @@
 
 import type React from "react";
+import { Page } from "../components/ui/Layout";
+import { HiOutlineUsers } from "react-icons/hi2";
+import ContactsContainer from "../features/contacts/components/ContactsContainer";
 
 const ContactsPage: React.FC = () => {
 
-  return <>
-    <h1 className="text-2xl font-bold">Contacts</h1>
-    <p>This is the Contacts</p>
-  </>
-}
+  return <Page title="Contacts" icon={<HiOutlineUsers size={24} />}>
+
+    <ContactsContainer />
+
+  </Page>
+};
 
 export default ContactsPage;

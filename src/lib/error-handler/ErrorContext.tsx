@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const { useState, createContext } = React;
 
@@ -19,6 +19,15 @@ export const ErrorProvider = ({ children }: any) => {
     console.error("Error captured:", error);
     setError(error);
   };
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail: any = (e as CustomEvent<string>).detail;
+      setError(detail);
+    };
+    window.addEventListener("app:error", handler as EventListener);
+    return () => window.removeEventListener("app:error", handler as EventListener);
+  }, []);
 
   const clearError = () => setError(null);
 

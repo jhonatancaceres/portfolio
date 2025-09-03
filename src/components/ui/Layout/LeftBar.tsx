@@ -1,6 +1,6 @@
 import { useState, type JSX } from "react";
 import type React from "react";
-import { HiCog, HiHome, HiMiniInformationCircle, HiOutlineChevronDoubleLeft, HiOutlineChevronDoubleRight, HiOutlineRocketLaunch, HiOutlineUsers } from "react-icons/hi2";
+import { HiOutlineChevronDoubleLeft, HiOutlineChevronDoubleRight, HiOutlineCog, HiOutlineDocumentText, HiOutlineHomeModern, HiOutlineInformationCircle, HiOutlineRocketLaunch, HiOutlineUsers } from "react-icons/hi2";
 import { NavLink, type NavLinkProps } from "react-router-dom";
 
 interface LocalNavLinkProps extends NavLinkProps {
@@ -25,10 +25,10 @@ interface Page {
 }
 
 const pages: Page[] = [
-  { to: '/', label: 'Home', icon: <HiHome size={24} /> },
+  { to: '/', label: 'Home', icon: <HiOutlineHomeModern size={24} /> },
   { to: '/contacts', label: 'Contacts', icon: <HiOutlineUsers size={24} /> },
   { to: '/lab', label: 'Lab', icon: <HiOutlineRocketLaunch size={24} /> },
-  { to: '/about', label: 'About', icon: <HiMiniInformationCircle size={24} /> },
+  { to: '/about', label: 'About', icon: <HiOutlineInformationCircle size={24} /> },
 ];
 
 export const LeftBar: React.FC = () => {
@@ -46,7 +46,8 @@ export const LeftBar: React.FC = () => {
       )}
     </div>
     <div className="flex-2 flex flex-col">
-      <LocalNavLink to="/settings" label="Settings" icon={<HiCog size={24} />} className={commonNavLinkClassName} isExpanded={isExpanded} />
+      <LocalNavLink to="/docs" label="Documents" icon={<HiOutlineDocumentText size={24} />} className={commonNavLinkClassName} isExpanded={isExpanded} />
+      <LocalNavLink to="/settings" label="Settings" icon={<HiOutlineCog size={24} />} className={commonNavLinkClassName} isExpanded={isExpanded} />
     </div>
   </div>
 };

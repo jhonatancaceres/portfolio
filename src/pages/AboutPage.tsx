@@ -1,12 +1,15 @@
 
 import type React from "react";
+import { Page } from "../components/ui/Layout";
+import { HiOutlineInformationCircle } from "react-icons/hi2";
 
 const AboutPage: React.FC = () => {
 
-  return <>
-    <h1 className="text-2xl font-bold">About</h1>
-    <p>This is the Home</p>
-  </>
+  return <Page title="About" icon={<HiOutlineInformationCircle size={24} />}>
+
+    <p>About page</p>
+
+  </Page>
 }
 
 export default AboutPage;
