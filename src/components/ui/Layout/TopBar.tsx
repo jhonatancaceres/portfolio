@@ -1,9 +1,10 @@
 import type React from "react";
+import { config } from "../../../lib/config";
 
 export const TopBar: React.FC = () => {
 
   return <div className="w-full bg-white border-b-2 border-gray-200 shadow-md p-4 flex justify-between items-center">
-    <p className="text-gray-800">Esta es la barra superior con una sombra inferior.</p>
+    <p className="text-gray-800">Esta es la barra superior con una sombra inferior. Prod: {config.isProduction ? 'T' : 'F'} - Dev: { config.isDevelopment ? 'T' : 'F'} - {process.env.NODE_ENV}</p>
 
     <div className="flex space-x-4">
 
