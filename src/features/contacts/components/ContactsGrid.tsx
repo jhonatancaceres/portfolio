@@ -19,7 +19,7 @@ interface IRow {
 // Create new GridExample component
 export const GridExample = () => {
   // Row Data: The data to be displayed.
-  const [rowData, setRowData] = useState<IRow[]>([
+  const [rowData] = useState<IRow[]>([
     { make: "Tesla", model: "Model Y", price: 64950, electric: true },
     { make: "Ford", model: "F-Series", price: 33850, electric: false },
     { make: "Toyota", model: "Corolla", price: 29600, electric: false },
@@ -29,7 +29,7 @@ export const GridExample = () => {
   ]);
 
   // Column Definitions: Defines & controls grid columns.
-  const [colDefs, setColDefs] = useState<ColDef<IRow>[]>([
+  const [colDefs] = useState<ColDef<IRow>[]>([
     { field: "make" },
     { field: "model" },
     { field: "price" },
