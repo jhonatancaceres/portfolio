@@ -4,6 +4,7 @@ import { ErrorBoundary, ErrorProvider } from '../lib/error-handler';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '../lib/queryClient';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { config } from '../lib/config';
 
 
 ///*<ErrorProvider>
@@ -33,7 +34,7 @@ export const AppProviders = ({ children }: PropsWithChildren) => {
     <ErrorProvider>
       <ErrorBoundary>
         <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
+          <BrowserRouter basename={config.isDevelopment ? "" : "/portfolio"}>
             {children}
           </BrowserRouter>
           {process.env.NODE_ENV === 'development' && (
