@@ -10,7 +10,7 @@ const HomePage: React.FC = () => {
   return <>
     <Page title="Home Page" icon={<HiOutlineHomeModern size={24} />}>
       <Card title="TODO">
-        <MarkdownReader filePath="/docs/TODO.md" />
+        <MarkdownReader filePath="docs/TODO.md" />
       </Card>
     </Page>
   </>
