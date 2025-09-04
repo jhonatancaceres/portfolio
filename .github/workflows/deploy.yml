@@ -30,6 +30,10 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Create Environment File
+        run: |
+          echo "MODE=production" >> .env
+
       - name: Install dependencies
         run: npm i
 

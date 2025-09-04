@@ -11,7 +11,7 @@ const DocsPage: React.FC = () => {
     <Page title="Documents" icon={<HiOutlineDocumentText size={24} />}>
 
       <Card title="Frontend Building Blocks">
-        <MarkdownReader filePath="src/docs/frontend-building-blocks.md" />
+        <MarkdownReader filePath="/docs/frontend-building-blocks.md" />
       </Card>
 
     </Page>
