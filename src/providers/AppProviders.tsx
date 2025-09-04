@@ -1,5 +1,5 @@
-import { type PropsWithChildren } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React, { type PropsWithChildren } from 'react';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { ErrorBoundary, ErrorProvider } from '../lib/error-handler';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '../lib/queryClient';
@@ -28,15 +28,23 @@ import { config } from '../lib/config';
 //</ErrorProvider>
 //*/}
 
+const RouterWrapper: React.FC<PropsWithChildren> = ({ children }) => {
+  if (config.isDevelopment) {
+    return <BrowserRouter>{children}</BrowserRouter>
+  }
+  return <HashRouter>{children}</HashRouter>
+
+}
+
 export const AppProviders = ({ children }: PropsWithChildren) => {
 
   return (
     <ErrorProvider>
       <ErrorBoundary>
         <QueryClientProvider client={queryClient}>
-          <BrowserRouter basename={config.isDevelopment ? "" : "/portfolio"}>
+          <RouterWrapper>
             {children}
-          </BrowserRouter>
+          </RouterWrapper>
           {process.env.NODE_ENV === 'development' && (
             <ReactQueryDevtools initialIsOpen={false} />
           )}
